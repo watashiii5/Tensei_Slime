@@ -80,6 +80,20 @@
 		<div class="basis">
 			<div class="padding-1"></div>
 			<div class="text-center">
+				<button onclick="this.app.goToGuide()" class="inline block">Continuation Guide</button>
+			</div>
+		</div>
+		<div class="basis">
+			<div class="padding-1"></div>
+			<div class="text-center">
+				<button onclick="this.app.goHome()" class="inline block">Home</button>
+			</div>
+		</div>
+	</div>
+	<div class="flex column-smol row-mid">
+		<div class="basis">
+			<div class="padding-1"></div>
+			<div class="text-center">
 				<div>
 					Select Font:
 					<select onchange="this.app.configs.fontFace = this.value" class="grow"
@@ -93,25 +107,48 @@
 				</div>
 				<div>
 					Font Size:
-					<input data-value="{:this.app.configs.fontSize || null:}"
-						onchange="this.app.configs.fontSize = this.valueAsNumber"
-						onblur="this.app.configs.fontSize = this.valueAsNumber" type="number" />
+					<input data-value="{:this.app.configs.fontSize || 16:}" type="range" min="14" max="28" step="1"
+						oninput="this.app.configs.fontSize = this.valueAsNumber" />
+					<span class="padding-left">{:this.app.configs.fontSize || 16:}px</span>
 				</div>
 			</div>
 		</div>
 		<div class="basis">
 			<div class="padding-1"></div>
 			<div class="text-center">
+				<div>
+					Line Height:
+					<input data-value="{:this.app.configs.lineHeight || 1.75:}" type="range" min="1.2" max="2.4"
+						step="0.05" oninput="this.app.configs.lineHeight = this.valueAsNumber" />
+					<span class="padding-left">{:this.app.configs.lineHeight || 1.75:}</span>
+				</div>
+				<div>
+					Reading Width:
+					<select onchange="this.app.configs.readingWidth = this.value" class="grow"
+						data-value="{:this.app.configs.readingWidth || 'normal':}|{configs.readingWidth}|">
+						<option value="narrow">Narrow</option>
+						<option value="normal">Normal</option>
+						<option value="wide">Wide</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="flex column-smol row-mid">
+		<div class="basis">
+			<div class="padding-1"></div>
+			<div class="text-center">
 				<span class="grow text-center">Theme: </span>
 				<select onchange="this.app.configs.theme = this.value" class="grow"
 					data-value="{:this.app.configs.theme:}|{configs.theme}|">
+					<option value="system">System (Auto)</option>
 					<option value="oled">OLED Black</option>
 					<option value="dark">Dark</option>
 					<!-- Note to those who see this from Ettezo:
 					These two themes given below were inspired by Calibre's sepia themes and modified to suit this web app. Hence Caliber and not Calibre ;) -->
 					<option value="sepialight">Caliber Sepia Light</option>
 					<option value="sepiadark">Caliber Sepia Dark</option>
-					<option value="">Light</option>
+					<option value="light">Light</option>
 				</select>
 			</div>
 		</div>

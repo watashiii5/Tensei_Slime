@@ -44,18 +44,17 @@ async function app(initConfigs) {
 
 	// code to do with changing and saving of theme
 	initConfigs.presist.theme = Object.prototype.hasOwnProperty.call(initConfigs.presist, "theme") ? initConfigs.presist.theme : "dark"
+	if (initConfigs.presist.theme === "") initConfigs.presist.theme = "light"
 	proxymity.watch(initConfigs.presist, "theme", updateTheme)
 	updateTheme(initConfigs.presist.theme)
 
+	let themeClasses = ["oled", "dark", "light", "sepialight", "sepiadark", "system"]
+
 	function updateTheme(newTheme) {
-		if (newTheme && !document.documentElement.classList.contains(newTheme)) {
-			document.documentElement.classList.remove("oled", "dark", "sepialight", "sepiadark")
+		document.documentElement.classList.remove(...themeClasses)
+		if (newTheme) {
 			document.documentElement.classList.add(newTheme)
 		}
-		else if (!newTheme) {
-			document.documentElement.classList.remove("oled", "dark", "sepialight", "sepiadark")
-		}
-
 		app.saveSettings()
 	}
 
@@ -71,22 +70,56 @@ async function app(initConfigs) {
 	initiateConfigProperty("fontFace", "serif")
 	initiateConfigProperty("fontSize", undefined)
 	let appRoot = document.getElementById("app")
-	proxymity.watch(initConfigs.presist, "fontFace", function (fontFam) {
+
+	// "Default" maps to a quality serif stack used for reading
+	function applyFontFace(fontFam) {
+		if (fontFam === "serif") {
+			appRoot.style.fontFamily = "'Georgia', 'Times New Roman', Times, serif"
+			return
+		}
 		if (!fontFam) {
 			appRoot.style.removeProperty("font-family")
 			return
 		}
-
 		appRoot.style.fontFamily = fontFam
-	})
-	proxymity.watch(initConfigs.presist, "fontSize", function (fontSize) {
+	}
+	proxymity.watch(initConfigs.presist, "fontFace", applyFontFace)
+	applyFontFace(initConfigs.presist.fontFace)
+
+	function applyFontSize(fontSize) {
 		if (!fontSize) {
 			appRoot.style.removeProperty("font-size")
 			return
 		}
-
 		appRoot.style.fontSize = fontSize + "px"
-	})
+	}
+	proxymity.watch(initConfigs.presist, "fontSize", applyFontSize)
+	applyFontSize(initConfigs.presist.fontSize)
+
+	// reading comfort: line height and content column width
+	initiateConfigProperty("lineHeight", undefined)
+	initiateConfigProperty("readingWidth", "normal")
+	const readingWidths = { narrow: "30rem", normal: "42rem", wide: "52rem" }
+
+	function applyLineHeight(lineHeight) {
+		if (!lineHeight) {
+			appRoot.style.removeProperty("--line-height-reading")
+			return
+		}
+		appRoot.style.setProperty("--line-height-reading", lineHeight)
+	}
+	proxymity.watch(initConfigs.presist, "lineHeight", applyLineHeight)
+	applyLineHeight(initConfigs.presist.lineHeight)
+
+	function applyReadingWidth(width) {
+		if (!readingWidths[width]) {
+			appRoot.style.removeProperty("--reading-max-width")
+			return
+		}
+		appRoot.style.setProperty("--reading-max-width", readingWidths[width])
+	}
+	proxymity.watch(initConfigs.presist, "readingWidth", applyReadingWidth)
+	applyReadingWidth(initConfigs.presist.readingWidth)
 
 	// setup the different views
 	let router = app.router = app.routerFactory(appRoot)
@@ -110,6 +143,8 @@ async function app(initConfigs) {
 	Object.keys(initConfigs.terms).forEach(term => globalTermchoices[term] = globalTermchoices[term] || term)
 
 	let termsChooser = app.termsChooser = await app.initChooseablesView(globalTermchoices, initConfigs.terms, router)
+
+	let guide = app.guide = await app.initGuide(router)
 
 	let reader = app.reader = await app.initReader(initConfigs.volumeList, router, namePicker, initConfigs.terms, globalTermchoices, initConfigs.presist)
 

@@ -1,11 +1,19 @@
-* {
-	box-sizing: content-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 img {
 	max-width: 100%;
 	height: auto;
+}
+:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
+}
+::selection {
+	background: var(--color-primary);
+	color: var(--color-white);
 }
 a {
 	color: var(--color-button-text);
@@ -27,7 +35,17 @@ button, .button {
 	;
 }
 body {
-	font-family: sans-serif;
+	font-family: var(--font-family-body);
+	font-size: 1em;
+	line-height: var(--line-height-body);
+	color: var(--color-text);
+	background-color: var(--color-background);
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transition:
+		background-color var(--transition-theme),
+		color var(--transition-theme);
 }
 .animate {
 	transition: all 0.5s;

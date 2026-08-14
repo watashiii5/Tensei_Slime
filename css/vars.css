@@ -1,13 +1,13 @@
 html {
-	--color-white: #FFF;
-	--color-light: #EEE;
-	--color-mid: #D0D0D0;
-	--color-low: #B2B2B2;
-	--color-dark: #333;
-	--color-black: #000;
+	--color-white: #FFFFFF;
+	--color-light: #F4F3F0;
+	--color-mid: #D6D4CE;
+	--color-low: #A2A09A;
+	--color-dark: #45433E;
+	--color-black: #201F1C;
 
-	--color-primary: hsl(213, 65%, 65%);
-	--color-secondary: hsl(213, 65%, 75%);
+	--color-primary: hsl(211, 73%, 38%);
+	--color-secondary: hsl(211, 73%, 55%);
 	--color-clear: rgba(0, 0, 0, 0);
 
 	/* now we've set up the basic background we can go and setup some other variables based on these */
@@ -20,7 +20,14 @@ html {
 	--responsive-padding: 0.5rem;
 	--base-border-radius: 0.5rem;
 
-	--color-error: #FF4444;
+	--color-error: #D62839;
+
+	/* typography + reading comfort */
+	--font-family-body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+	--line-height-body: 1.5;
+	--line-height-reading: 1.75;
+	--reading-max-width: 42rem;
+	--transition-theme: 0.25s ease;
 }
 
 /*
@@ -120,4 +127,8 @@ button-{{color}} will change the button to a color and the text to match the col
 .color-in {
 	background-color: var(--color-background);
 	color: var(--color-text);
+	transition:
+		background-color var(--transition-theme),
+		color var(--transition-theme),
+		border-color var(--transition-theme);
 }

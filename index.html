@@ -31,6 +31,20 @@
 			if (p.length > 1 && p.endsWith("/")) { p = p.slice(0, -1); }
 			return p === "/" ? "" : p;
 		})();
+
+		// Apply the saved theme before first paint so there's no flash of the
+		// wrong background. No-op when nothing is saved (falls back to the class
+		// already on the <html> element).
+		(function () {
+			try {
+				var saved = JSON.parse(localStorage.getItem("_app_state") || "null");
+				if (saved && saved.theme) {
+					var html = document.documentElement;
+					html.classList.remove("oled", "dark", "light", "sepialight", "sepiadark", "system");
+					html.classList.add(saved.theme);
+				}
+			} catch (e) {}
+		})();
 		</script>
 	</head>
 	<body class="marginless paddingless">
@@ -59,6 +73,7 @@
 		<script src="js/chooseables-config/controller.js"></script>
 		<script src="js/search-text/controller.js"></script>
 		<script src="js/manga/controller.js"></script>
+		<script src="js/guide/controller.js"></script>
 
 		<script>app.init().catch(uwu=>console.log(uwu) || alert("Failed to initiate app"))</script>
 	</body>

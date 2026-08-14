@@ -15,6 +15,7 @@ app.initNav = async function (currentConfigs, routerInstance) {
 		useableFonts: [],
 		backClickable: false,
 		goHome: () => routerInstance.rout("/"),
+		goToGuide: () => routerInstance.rout("/guide"),
 		refreshCache: () => document.location.reload(),
 	})
 

@@ -1,33 +1,73 @@
 .oled {
-	--color-white: #000;
-	--color-light: #1A1A1A;
-	--color-mid: #5C5C5C;
-	--color-low: #777;
-	--color-dark: #999;
-	--color-black: #AAA;
+	--color-white: #000000;
+	--color-light: #111111;
+	--color-mid: #3A3A3A;
+	--color-low: #6E6E6E;
+	--color-dark: #9E9E9E;
+	--color-black: #EAEAEA;
+	--color-primary: hsl(213, 65%, 65%);
+	--color-secondary: hsl(213, 65%, 75%);
 }
 .dark {
-	--color-white: #202020;
-	--color-light: #393939;
-	--color-mid: #595959;
-	--color-low: #AAA;
-	--color-dark: #CBCBCB;
-	--color-black: #EEE;
+	--color-white: #1E1E1E;
+	--color-light: #2B2B2B;
+	--color-mid: #4A4A4A;
+	--color-low: #8F8F8F;
+	--color-dark: #C9C9C9;
+	--color-black: #F0F0F0;
+	--color-primary: hsl(213, 65%, 65%);
+	--color-secondary: hsl(213, 65%, 75%);
+}
+.light {
+	--color-white: #FFFFFF;
+	--color-light: #F4F3F0;
+	--color-mid: #D6D4CE;
+	--color-low: #A2A09A;
+	--color-dark: #45433E;
+	--color-black: #201F1C;
+	--color-primary: hsl(211, 73%, 38%);
+	--color-secondary: hsl(211, 73%, 55%);
+}
+/* Follow the operating system preference */
+.system {
+	--color-white: #FFFFFF;
+	--color-light: #F4F3F0;
+	--color-mid: #D6D4CE;
+	--color-low: #A2A09A;
+	--color-dark: #45433E;
+	--color-black: #201F1C;
+	--color-primary: hsl(211, 73%, 38%);
+	--color-secondary: hsl(211, 73%, 55%);
+}
+@media (prefers-color-scheme: dark) {
+	.system {
+		--color-white: #1E1E1E;
+		--color-light: #2B2B2B;
+		--color-mid: #4A4A4A;
+		--color-low: #8F8F8F;
+		--color-dark: #C9C9C9;
+		--color-black: #F0F0F0;
+		--color-primary: hsl(213, 65%, 65%);
+		--color-secondary: hsl(213, 65%, 75%);
+	}
 }
 .sepialight {
-    --color-white: #F6F3E9;
-    --color-light: #b78f5c;
-    --color-mid: #F6F3E9;
-    --color-low: #442d2d;
-    --color-dark: #000;
-    --color-black: #39322B;
-    --color-primary: #7ba0df;
+	--color-white: #F7F2E4;
+	--color-light: #EAE2CD;
+	--color-mid: #D6CBB0;
+	--color-low: #9A8F72;
+	--color-dark: #4C4433;
+	--color-black: #2A2518;
+	--color-primary: hsl(30, 45%, 32%);
+	--color-secondary: hsl(30, 45%, 46%);
 }
 .sepiadark {
-    --color-white: #39322a;
-    --color-light: #594e47;
-    --color-mid: #39322a;
-    --color-low: #938B8B;
-    --color-dark: #f5f0d2;
-    --color-black: #EEE;
+	--color-white: #2B2620;
+	--color-light: #3A342B;
+	--color-mid: #4C4539;
+	--color-low: #9A917F;
+	--color-dark: #D8D1BC;
+	--color-black: #F3EDD9;
+	--color-primary: hsl(38, 55%, 70%);
+	--color-secondary: hsl(38, 55%, 80%);
 }

@@ -23,6 +23,15 @@ npm start
 
 Then open http://localhost:9001
 
+## Features
+
+- **Themes** — OLED, Dark, Light, Caliber Sepia (light/dark), or System (follows your
+  OS setting). Changes apply instantly and are remembered.
+- **Reading customization** — pick a font, and adjust font size, line height, and the
+  reading column width to your liking. All settings are saved automatically.
+- **Continuation Guide** — anime season / light novel / manga mapping so you always
+  know where to continue reading, with links to the Fandom wiki.
+
 ## Notes
 
 - The MIT license in `LICENSE` covers the *code* only. The novel translation text,

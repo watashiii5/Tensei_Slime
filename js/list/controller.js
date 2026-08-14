@@ -18,6 +18,10 @@ app.initIndexView = async function(volumes, routerInstance){
 		routerInstance.rout("/manga")
 	}
 
+	view.app.routGuide = function(){
+		routerInstance.rout("/guide")
+	}
+
 	routerInstance.add("/", view)
 
 	return view

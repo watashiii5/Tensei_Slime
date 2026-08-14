@@ -114,7 +114,7 @@ hr.line::before {
 
 .content-width {
 	width: 100%;
-	max-width: calc(var(--base-padding) * 80);
+	max-width: var(--reading-max-width);
 	margin: auto;
 }
 
@@ -212,12 +212,15 @@ body {
 	font-size: 1em;
 	font-weight: normal;
 	letter-spacing: 0;
-	line-height: 1.8em;
+	line-height: var(--line-height-reading);
+	hyphens: auto;
+	overflow-wrap: break-word;
 	orphans: 1;
 	padding: 0;
 	text-align: justify;
 	widows: 1;
 	word-spacing: 0;
+	text-rendering: optimizeLegibility;
 }
 
 /*title page*/
@@ -304,7 +307,7 @@ p {
 	margin-bottom: 0;
 	margin-left: 0;
 	margin-right: 0;
-	text-indent: 20pt;
+	text-indent: 1.75em;
 }
 
 .no-indent {
@@ -419,4 +422,104 @@ sup {
 
 .strikethrough {
 	text-decoration: line-through;
+}
+
+/*Continuation guide*/
+.guide {
+	max-width: var(--reading-max-width);
+	margin: 0 auto;
+	padding: calc(var(--base-padding) * 2);
+}
+.guide h2 {
+	font-family: var(--font-family-body);
+	text-align: center;
+	margin: 1em 0 0.5em;
+}
+.guide h3 {
+	font-family: var(--font-family-body);
+	margin: 1.5em 0 0.5em;
+	padding-bottom: calc(var(--base-padding) / 2);
+	border-bottom: solid 2px var(--color-primary);
+}
+.guide p {
+	text-indent: 0;
+	margin: 0.5em 0;
+}
+.guide a {
+	color: var(--color-primary);
+	text-decoration: underline;
+}
+.guide .notice {
+	background: var(--color-light);
+	border-left: 4px solid var(--color-primary);
+	border-radius: calc(var(--base-border-radius) / 2);
+	padding: calc(var(--base-padding) * 2);
+	margin: 1.5em 0;
+}
+.guide .table-wrap {
+	overflow-x: auto;
+	margin: 1em 0;
+}
+.guide table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.guide th,
+.guide td {
+	padding: calc(var(--base-padding) / 2) var(--base-padding);
+	border-bottom: solid 1px var(--color-mid);
+	text-align: left;
+	vertical-align: top;
+}
+.guide th {
+	background: var(--color-light);
+}
+.guide td:first-child {
+	white-space: nowrap;
+	font-weight: 600;
+}
+.guide .where-now {
+	background: var(--color-button);
+	color: var(--color-button-text);
+	border-radius: var(--base-border-radius);
+	padding: calc(var(--base-padding) * 2);
+	margin: 1em 0;
+}
+.guide .where-now p {
+	margin: 0.25em 0;
+}
+.guide ul {
+	margin: 0.5em 0 0.5em 1.5em;
+	padding: 0;
+}
+.guide li {
+	margin: 0.25em 0;
+}
+
+/*responsive comfort for phones*/
+@media screen and (max-width: 37em) {
+	#app {
+		padding-left: var(--base-padding);
+		padding-right: var(--base-padding);
+	}
+	.guide {
+		padding: var(--base-padding);
+	}
+}
+
+/*subtle scrollbar that matches the active theme*/
+::-webkit-scrollbar {
+	width: 12px;
+	height: 12px;
+}
+::-webkit-scrollbar-track {
+	background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--color-mid);
+	border-radius: 6px;
+	border: 2px solid var(--color-background);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-low);
 }
