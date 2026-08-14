@@ -6,6 +6,10 @@
 *.azw3
 *.tex
 
+# Allow the light novel PDFs we intentionally host for download
+!PDF_Slimes/
+!PDF_Slimes/*.pdf
+
 .directory
 
 # Logs

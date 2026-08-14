@@ -22,6 +22,10 @@ app.initIndexView = async function(volumes, routerInstance){
 		routerInstance.rout("/guide")
 	}
 
+	view.app.routDownloads = function(){
+		routerInstance.rout("/downloads")
+	}
+
 	routerInstance.add("/", view)
 
 	return view

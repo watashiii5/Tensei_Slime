@@ -16,6 +16,7 @@ app.initNav = async function (currentConfigs, routerInstance) {
 		backClickable: false,
 		goHome: () => routerInstance.rout("/"),
 		goToGuide: () => routerInstance.rout("/guide"),
+		goToDownloads: () => routerInstance.rout("/downloads"),
 		refreshCache: () => document.location.reload(),
 	})
 

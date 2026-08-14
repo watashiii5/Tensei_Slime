@@ -31,6 +31,7 @@ Then open http://localhost:9001
   reading column width to your liking. All settings are saved automatically.
 - **Continuation Guide** — anime season / light novel / manga mapping so you always
   know where to continue reading, with links to the Fandom wiki.
+- **PDF Downloads** — downloadable PDFs of the light novels (stored in `PDF_Slimes/`).
 
 ## Notes
 

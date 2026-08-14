@@ -1,0 +1,18 @@
+<div class="guide">
+	<h2>PDF Downloads</h2>
+	<p>Download the light novels as PDF files and keep them on your device for offline reading.</p>
+
+	<div class="notice">
+		<strong>Note:</strong> These are unofficial fan-made PDFs of the <i>tensurafan translation group's</i> English
+		fan translation. Each file is roughly 7&ndash;17&nbsp;MB. Volume 13 is not currently available.
+	</div>
+
+	<!-- foreach: "pdf" -->
+	<div class="text-center">
+		<a class="button block clickable content-width" href="{:this.app.pdfs[this.pdf].href:}" download>
+			Download {:this.app.pdfs[this.pdf].name:}
+		</a>
+	</div>
+	<div class="padding-1"></div>
+	<!-- in: pdfs -->
+</div>

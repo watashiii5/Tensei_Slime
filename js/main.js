@@ -147,6 +147,8 @@ async function app(initConfigs) {
 
 	let guide = app.guide = await app.initGuide(router)
 
+	let downloads = app.downloads = await app.initDownloads(router)
+
 	let reader = app.reader = await app.initReader(initConfigs.volumeList, router, namePicker, initConfigs.terms, globalTermchoices, initConfigs.presist)
 
 	let footer = app.footer = await app.initFooter(initConfigs.presist)
