@@ -45,8 +45,6 @@ async function app(initConfigs) {
 	// code to do with changing and saving of theme
 	initConfigs.presist.theme = Object.prototype.hasOwnProperty.call(initConfigs.presist, "theme") ? initConfigs.presist.theme : "dark"
 	if (initConfigs.presist.theme === "") initConfigs.presist.theme = "light"
-	proxymity.watch(initConfigs.presist, "theme", updateTheme)
-	updateTheme(initConfigs.presist.theme)
 
 	let themeClasses = ["oled", "dark", "light", "sepialight", "sepiadark", "system"]
 
@@ -57,6 +55,9 @@ async function app(initConfigs) {
 		}
 		app.saveSettings()
 	}
+
+	proxymity.watch(initConfigs.presist, "theme", updateTheme)
+	updateTheme(initConfigs.presist.theme)
 
 	function initiateConfigProperty(configuredPropertyName, defaultValue) {
 		initConfigs.presist[configuredPropertyName] = Object.prototype.hasOwnProperty.call(initConfigs.presist, configuredPropertyName) ? initConfigs.presist[configuredPropertyName] : defaultValue
