@@ -1,0 +1,33 @@
+.oled {
+	--color-white: #000;
+	--color-light: #1A1A1A;
+	--color-mid: #5C5C5C;
+	--color-low: #777;
+	--color-dark: #999;
+	--color-black: #AAA;
+}
+.dark {
+	--color-white: #202020;
+	--color-light: #393939;
+	--color-mid: #595959;
+	--color-low: #AAA;
+	--color-dark: #CBCBCB;
+	--color-black: #EEE;
+}
+.sepialight {
+    --color-white: #F6F3E9;
+    --color-light: #b78f5c;
+    --color-mid: #F6F3E9;
+    --color-low: #442d2d;
+    --color-dark: #000;
+    --color-black: #39322B;
+    --color-primary: #7ba0df;
+}
+.sepiadark {
+    --color-white: #39322a;
+    --color-light: #594e47;
+    --color-mid: #39322a;
+    --color-low: #938B8B;
+    --color-dark: #f5f0d2;
+    --color-black: #EEE;
+}

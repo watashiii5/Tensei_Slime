@@ -1,0 +1,44 @@
+<div class="text-center padding-bottom-1">
+	<h2 class="paddingless marginless">Light Novel Volumes</h2>
+	<small>(Click to Read)</small>
+</div>
+<!-- foreach: "volume" -->
+<div onclick="this.app.read(this.app.volumes[this.volume].id, this.app.volumes[this.volume].progress)"
+	class="block button clickable content-width {:this.app.volumes[this.volume].progress < 100 ? 'volume-progressing' : 'support-color-indicator' :}|{volumes[this.volume].progress}|"
+	style="--volume-progress: {:this.app.volumes[this.volume].progress:}|{volumes[this.volume].progress}|">
+	<span>{:this.app.volumes[this.volume].name:}|{volumes[this.volume].name}|</span>
+	<img src="/img/color-wheel.svg"
+		class="color-indicator {:this.app.volumes[this.volume].color ? 'color' : 'grayscal' :} {: Object.prototype.hasOwnProperty.call(this.app.volumes[this.volume], 'color') ? '' : 'hidden-state' :} " />
+	<span
+		class="progressing-percent {:this.app.volumes[this.volume].progress < 100 ? '' : 'hidden' :}|{volumes[this.volume].progress}|">{:this.app.volumes[this.volume].progress:}|{volumes[this.volume].progress}|%</span>
+</div>
+<div class="padding-1"></div>
+<!-- in: volumes -->
+<div class="text-center padding-bottom-1  padding-top-1">
+	<strong class="paddingless marginless">Extras</strong>
+</div>
+
+<div onclick="this.app.routSelectables()" class="block button clickable content-width">
+	Manage Selectable terms
+</div>
+<div class="padding-1"></div>
+
+<!-- Re-enable this and disable the a tag below to restore the old chapter view
+<div onclick="this.app.routManga()" class="block button clickable content-width">
+	Read Manga
+</div>
+-->
+<a href="https://cubari.moe/read/gist/cmF3L3RlbnN1cmFmYW4vdGVuc3VyYWZhbi5naXRodWIuaW8vbWFzdGVyL21hbmdhLWluZGV4Lmpzb24"
+	target="_blank">
+	<div class="block button clickable content-width">
+		<span>Read Manga</span>
+	</div>
+</a>
+<div class="padding-1"></div>
+
+<a href="https://cubari.moe/read/imgur/sSH2Zw3/" target="_blank">
+	<div class="block button clickable content-width">
+		<span>Booklet: The Path of the Dragon Princess</span>
+	</div>
+</a>
+<div class="padding-1"></div>

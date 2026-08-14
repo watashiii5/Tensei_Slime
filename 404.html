@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Page not found</title>
+		<script>
+			// Compute the app base path and redirect to the reader home page.
+			var p = window.location.pathname;
+			if (p.endsWith(".html")) { p = p.slice(0, p.lastIndexOf("/")); }
+			if (p.length > 1 && p.endsWith("/")) { p = p.slice(0, -1); }
+			var base = p === "/" ? "" : p;
+			window.location.replace(base + "/");
+		</script>
+	</head>
+	<body></body>
+</html>

@@ -1,0 +1,422 @@
+#nav {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+#app {
+	margin-top: var(--menu-height);
+	padding-bottom: 0;
+	/* height: calc(100vh - var(--menu-height)); */
+	overflow: auto;
+	overflow-x: unset;
+	overflow-y: auto;
+}
+
+#read-error {
+	height: 100%;
+}
+
+#footnote-viewer {
+	min-width: 50vw;
+	max-width: 75vw;
+	top: calc(var(--position-bottom) + var(--base-padding));
+	border-radius: calc(var(--base-border-radius) / 2);
+}
+
+#name-picker,
+#text-searcher {
+	top: calc(var(--menu-height) + 1em);
+	border-radius: calc(var(--base-border-radius) / 2);
+	left: 50%;
+	transform: translate(-50%);
+}
+
+#footer,
+#install-instructions-backdrop {
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+#install-instructions-backdrop {
+	top: 0;
+}
+
+#quote-url-block,
+#quote-url-block::before,
+#quote-url-block .url-location {
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	padding: var(--base-padding);
+	color: var(--color-button-text);
+}
+
+#quote-url-block::before {
+	position: absolute;
+	display: block;
+	content: " ";
+	background-color: var(--color-button);
+	opacity: 0.9;
+}
+
+#quote-url-block .close-button {
+	padding: calc(var(--base-padding) / 2);
+	align-self: flex-start;
+}
+
+#quote-url-block pre {
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+#quote-url-block {
+	bottom: calc(var(--base-padding) * 2);
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.underline {
+	text-decoration: underline;
+	text-decoration-color: var(--color-button-text);
+}
+
+.bubbly {
+	border-radius: calc(var(--base-border-radius) / 2);
+}
+
+.line {
+	padding: 0;
+	margin: 0;
+	padding-bottom: calc(var(--base-padding) * 2);
+	position: relative;
+	text-align: justify;
+	min-height: 0.5em;
+}
+
+hr.line {
+	border: 0;
+}
+
+hr.line::before {
+	display: block;
+	content: " ";
+	border-bottom: solid 0.125em currentcolor;
+}
+
+.content-width {
+	width: 100%;
+	max-width: calc(var(--base-padding) * 80);
+	margin: auto;
+}
+
+img.line {
+	max-width: 100%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.border-top {
+	border-top: solid 1px var(--color-button);
+}
+
+.border-bot {
+	border-bottom: solid 1px var(--color-button);
+}
+
+.border-left {
+	border-left: solid 1px var(--color-button);
+}
+
+.border-right {
+	border-right: solid 1px var(--color-button);
+}
+
+.scrollable {
+	max-height: calc(90vh - var(--menu-height));
+	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+button.volume-progressing,
+.button.volume-progressing {
+	color: var(--color-low);
+
+	background: linear-gradient(to right,
+			var(--color-button) calc(1% * calc(var(--volume-progress) - 0.1)),
+			var(--color-clear) calc(1% * var(--volume-progress)));
+}
+
+.progressing-percent {
+	margin-right: 5%;
+	float: right;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.follower-selectable-term::before {
+	content: " ";
+}
+
+.support-color-indicator {
+	display: flex;
+	align-items: center;
+	position: relative;
+	justify-content: flex;
+}
+
+.color-indicator {
+	width: 0.75em;
+	height: 0.75em;
+	position: absolute;
+	right: 0.5em;
+	/* this will push the element to the right */
+	top: 50%;
+	/* this will center the element vertically */
+	transform: translateY(-50%);
+	/* this will move the element up by half of it's height */
+}
+
+.grayscal {
+	filter: grayscale(100%);
+}
+
+/* reader stuff */
+.strong {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+body {
+	line-height: 1.2em;
+	font-size: 1em;
+}
+
+.story {
+	font-size: 1em;
+	font-weight: normal;
+	letter-spacing: 0;
+	line-height: 1.8em;
+	orphans: 1;
+	padding: 0;
+	text-align: justify;
+	widows: 1;
+	word-spacing: 0;
+}
+
+/*title page*/
+h1.title {
+	display: block;
+	font-size: 1.6em;
+	line-height: 1.2;
+	page-break-after: avoid;
+	page-break-inside: avoid;
+	text-align: center;
+	margin: 1em 0;
+	padding: 0;
+}
+
+.subtitle {
+	font-size: 1.6em;
+	text-align: center;
+	margin: 1em 0;
+	padding: 0;
+}
+
+.credits-entry {
+	font-size: 1em;
+	line-height: 1.2;
+	margin: 1em 0;
+	padding: 0;
+	text-indent: 0;
+}
+
+.credits-entry-space {
+	font-size: 1em;
+	line-height: 1.2;
+	margin: 3em 0 1em;
+	padding: 0;
+	text-indent: 0;
+}
+
+.hlink {
+	color: var(--color-primary);
+	line-height: 1.2;
+	text-decoration: underline;
+}
+
+/*Chapter content*/
+h1.ch-number {
+	font-size: 1.5em;
+	line-height: 1.5em;
+	font-weight: normal;
+	page-break-after: avoid;
+	page-break-inside: avoid;
+	text-align: center;
+	padding: 0;
+	margin-top: 3em;
+	margin-bottom: 1em;
+	text-indent: 0;
+	font-family: sans-serif;
+}
+
+h1.ch-name {
+	font-size: 1.4em;
+	line-height: 1.4em;
+	text-align: center;
+	padding: 0;
+	margin-top: 0.5em;
+	margin-bottom: 4em;
+	text-indent: 0;
+	font-family: sans-serif;
+}
+
+h1.afterword {
+	font-size: 1.5em;
+	line-height: 1.5em;
+	text-align: center;
+	padding: 0;
+	margin-top: 3em;
+	margin-bottom: 4em;
+	text-indent: 0;
+	font-family: sans-serif;
+}
+
+p {
+	display: block;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	text-indent: 20pt;
+}
+
+.no-indent {
+	text-indent: 0;
+}
+
+.space-break {
+	margin-top: 1.5em;
+}
+
+/*Illustration wrapper*/
+img.full {
+	background: transparent;
+	display: inline-block;
+	height: auto;
+	page-break-inside: avoid;
+	vertical-align: baseline;
+	width: auto;
+	max-width: 100%;
+	border: currentColor none medium;
+	margin: 0;
+	padding: 0;
+}
+
+.pagebreak {
+	display: block;
+	page-break-after: always;
+}
+
+/*Scenebreak*/
+.scenebreak {
+	line-height: 1em;
+	margin-bottom: 3em;
+	margin-top: 3em;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.ornament-hard {
+	/*ball*/
+	height: auto;
+	width: 1.4em;
+}
+
+.ornament-soft {
+	/*asterisk*/
+	height: auto;
+	width: 1.2em;
+}
+
+/*Table of contents*/
+h1.toc-title {
+	font-size: 1.25em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	text-align: center;
+	text-indent: 0;
+	line-height: 1.2em;
+}
+
+.toc-chapter-space {
+	text-indent: 0;
+	margin-top: 2em;
+	margin-bottom: 0.5em;
+	text-align: left;
+}
+
+.toc-chapter {
+	text-indent: 0;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	text-align: left;
+}
+
+/*Bullet list*/
+div.wrapper {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+li p {
+	text-indent: 0em;
+}
+
+/*footnote*/
+sup {
+	font-size: 0.8em;
+	line-height: 1.2;
+	vertical-align: top;
+}
+
+.note-back {
+	display: block;
+	font-size: 1.4em;
+	line-height: 1.2;
+}
+
+.note-text {
+	display: block;
+	margin-left: 0;
+	text-indent: 0;
+}
+
+.footnote {
+	display: block;
+	margin: 1em 0;
+}
+
+.no-deco {
+	text-decoration: none;
+}
+
+.strikethrough {
+	text-decoration: line-through;
+}
